@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 import ProfileWidget from '@/components/ProfileWidget'
@@ -10,11 +9,11 @@ import SocialWidget from '@/components/SocialWidget'
 import Footer from '@/components/Footer'
 import { useWallet } from '@/contexts/WalletContext'
 import LandingPage from '@/components/LandingPage'
+import Borrow from '@/components/BorrowLend'
 
-export default function Dashboard({params}) {
+export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { walletConnected, walletAddress } = useWallet()
-  const {username}=params
 
 
   if (!walletConnected) {
@@ -23,11 +22,6 @@ export default function Dashboard({params}) {
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
-      <Head>
-        <title>InfiniteLinks DeFi Dashboard</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -41,7 +35,7 @@ export default function Dashboard({params}) {
               <PerformanceWidget />
             </div>
             <div className="flex flex-wrap -mx-6 mt-6">
-              <ActivityWidget />
+              <Borrow/>
               <SocialWidget />
             </div>
           </div>

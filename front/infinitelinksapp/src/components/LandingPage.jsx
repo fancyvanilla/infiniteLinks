@@ -1,5 +1,6 @@
+'use client'
 import { FiLink, FiShield, FiTrendingUp } from 'react-icons/fi';
-import { useWallet } from '../contexts/WalletContext';
+import { useWallet } from '@/contexts/WalletContext';
 
 export default function LandingPage() {
   const { connectWallet } = useWallet();

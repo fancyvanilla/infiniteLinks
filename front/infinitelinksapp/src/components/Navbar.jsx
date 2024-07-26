@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { FiMenu, FiBell, FiUser } from 'react-icons/fi'
 
+
 export default function Navbar({ toggleSidebar }) {
   const [profileOpen, setProfileOpen] = useState(false)
 
@@ -13,9 +14,6 @@ export default function Navbar({ toggleSidebar }) {
             <button onClick={toggleSidebar} className="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
               <FiMenu className="h-6 w-6" />
             </button>
-            <div className="flex-shrink-0 ml-4">
-              <img className="h-8 w-8" src="/logo.svg" alt="InfiniteLinks" />
-            </div>
           </div>
           <div className="flex items-center">
             <button className="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
