@@ -8,9 +8,18 @@ import PerformanceWidget from '@/app/components/PerformanceWidget'
 import ActivityWidget from '@/app/components/ActivityWidget'
 import SocialWidget from '@/app/components/SocialWidget'
 import Footer from '@/app/components/Footer'
+import { useWallet } from '@/contexts/WalletContext'
+import LandingPage from '@/app/components/LandingPage'
 
-export default function Dashboard() {
+export default function Dashboard({params}) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const { walletConnected, walletAddress } = useWallet()
+  const {username}=params
+
+
+  if (!walletConnected) {
+    return <LandingPage />
+  }
 
   return (
     <div className="flex h-screen bg-gray-900 text-white">
@@ -26,7 +35,7 @@ export default function Dashboard() {
 
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-900">
           <div className="container mx-auto px-6 py-8">
-            <h3 className="text-3xl font-medium text-white mb-6">Welcome back, User!</h3>
+            <h3 className="text-3xl font-medium text-white mb-6">Welcome back, {username}!</h3>
             <div className="flex flex-wrap -mx-6">
               <ProfileWidget />
               <PerformanceWidget />
