@@ -1,0 +1,15 @@
+[package]
+name = "infiniteLinks"
+version = "1.0.0"
+authors = []
+
+[addresses]
+AppAddr= "f233bafea44c24cd8dafa6000f9d434e300444bbb6514c4f5e57ee122848fa7d"
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dev-dependencies]
